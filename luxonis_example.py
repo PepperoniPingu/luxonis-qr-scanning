@@ -18,11 +18,11 @@ def callback(packet):
         cropped_qr = 255 - cropped_qr  # invert colors for revert black and white
 
         # Decode QR code
-        #arcodes = pyzbar.decode(cropped_qr)
-        #for barcode in barcodes:
-        #    barcode_info = barcode.data.decode('utf-8')
-        #    # Add text to the frame
-        #    packet.visualizer.add_text(barcode_info, size=1, bbox=bbox, position=TextPosition.MID, outline=True)
+        arcodes = pyzbar.decode(cropped_qr)
+        for barcode in barcodes:
+            barcode_info = barcode.data.decode('utf-8')
+            # Add text to the frame
+            packet.visualizer.add_text(barcode_info, size=1, bbox=bbox, position=TextPosition.MID, outline=True)
 
     frame = packet.visualizer.draw(packet.frame)
     cv2.imshow('QR code recognition', frame)
