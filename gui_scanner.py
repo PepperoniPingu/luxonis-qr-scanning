@@ -82,13 +82,13 @@ async def main() -> None:
         dpg.create_context()
 
         cameras = {}
-        camera_side = Camera(mxid="19443010E167281300")
+        camera_side = Camera()
         try:
             exit_stack.enter_context(camera_side.connect())
             cameras["side"] = camera_side
         except Exception as err:
             print(err)
-        camera_top = Camera(mxid="19443010D13B291300", crop_rect=Rect(0.10199999809265137, 0.11999999731779099, 0.8790000081062317, 0.5740000009536743))
+        camera_top = Camera()
         try:
             exit_stack.enter_context(camera_top.connect())
             cameras["top"] = camera_top
